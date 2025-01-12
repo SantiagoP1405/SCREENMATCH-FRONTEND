@@ -5,6 +5,7 @@ import com.aluracursos.santiagogomez.screenmatch_spring.model.Categoria;
 import jakarta.persistence.Enumerated;
 
 public record SerieDTO(
+    Long id,
     String titulo, 
     Integer totalTemporadas,
     Double evaluacion,

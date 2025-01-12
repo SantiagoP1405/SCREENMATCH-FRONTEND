@@ -1,6 +1,7 @@
 package com.aluracursos.santiagogomez.screenmatch_spring.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,16 @@ public class SerieService {
 
     public List<SerieDTO> convierDatos(List<Serie> serie){
         return serie.stream()
-        .map(s -> new SerieDTO(s.getTitulo(), s.getTotalTemporadas(),  s.getEvaluacion(), s.getGenero(), s.getSinopsis(), s.getPoster(), s.getCasting()))
+        .map(s -> new SerieDTO(s.getId(), s.getTitulo(), s.getTotalTemporadas(),  s.getEvaluacion(), s.getGenero(), s.getSinopsis(), s.getPoster(), s.getCasting()))
         .collect(Collectors.toList());
+    }
+
+    public SerieDTO obtenerPorId(Long id){
+        Optional<Serie> serie = repository.findById(id);
+        if (serie.isPresent()){
+            Serie s = serie.get();
+            return new SerieDTO(s.getId(), s.getTitulo(), s.getTotalTemporadas(),  s.getEvaluacion(), s.getGenero(), s.getSinopsis(), s.getPoster(), s.getCasting());
+        }
+        return null;
     }
 }

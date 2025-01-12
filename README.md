@@ -1,26 +1,60 @@
-![thumbnail-Formação Java](https://github.com/genesysR-dev/2086-screenmatch-front-end/assets/91544872/2d873cba-ca9c-4567-8ce4-fb2785ef9ab4)
+# Proyecto de API  - SCREENMATCH 2
 
+Este proyecto es una API desarrollada con Spring Boot que permite gestionar y mostrar información relacionada con series de televisión, incluyendo detalles como temporadas, episodios, categorías y más. La API está diseñada para ser consumida por un frontend, permitiendo la interacción con los datos de manera eficiente.
+Cabe aclarar que la plantilla para la parte de Front End, así como el procedimiento para el desarrollo de la parte de Back End del proyecto, fueron obtenidos y desarrollados (respectivamente) en el curso **Java: creando tu primera API y conectándola a Front End**, del programa ONE, po **Alura Latam** y **Oracle** . 
 
-# Front-end de la aplicación ScreenMatch
+---
 
-Esta es la aplicacion Front-end que será utilizada en el curso.
+## Características
+- **Front End**: toda la información mostrada se muestra como si fuera una página web, combinando Back End con Front End
+- **Listado de Series**: Permite consultar todas las series almacenadas en la base de datos.
+- **Series por Categoría**: Obtención de series filtradas por categorías (géneros).
+- **Detalle de Serie**: Proporciona información detallada sobre una serie específica, incluyendo temporadas y episodios.
+- **Top 5 Series**: Obtención de las 5 mejores series basadas en la evaluación de los usuarios.
+- **API Restful**: La API sigue principios RESTful y utiliza endpoints bien estructurados para facilitar su integración con otros sistemas.
 
-Fue desarrollada por [Monica Hillman](https://www.linkedin.com/in/monicamhillman/)
+---
 
-Para visualizarla, puedes descargarla como zip o clonar el projeto, abrela con VS Code e instala la extensión *Live Server*.
+### Tecnologías Utilizadas
 
-Hecho esto, haz clic con el boton derecho en el archivo **index.html** y elige "Open with Live Server".
+- **Spring Boot**: Framework para la creación de aplicaciones Java basadas en Spring.
+- **JPA**: Persistencia de datos en la base de datos mediante Java Persistence API.
+- **DTO**: Uso de objetos de transferencia de datos para encapsular la información que se retorna.
+- **Jackson**: Biblioteca para la serialización y deserialización de datos en formato JSON.
+- **CORS**: Configuración de políticas de seguridad para solicitudes entre diferentes orígenes.
 
-Al principio, como nuestra API no está desarollada el contenido que veras será este de aquí:
+---
 
-![image](https://github.com/jacqueline-oliveira/3356-java-web-front/assets/66698429/b059bf8b-df40-4a51-8a27-9d1058305955)
+### Estructura del Proyecto
 
+El proyecto sigue la arquitectura Modelo-Vista-Controlador (MVC), con las siguientes capas:
 
-Después de completar el curso, tu proyecto estará completo, con las series registradas y la API con las rutas listas. Por lo tanto, la aplicación mostrará los datos, similares a los siguientes:
+- **Controladores**: Mapeo de las rutas de la API y manejo de solicitudes HTTP.
+- **Servicios**: Lógica de negocio y manejo de las entidades.
+- **Repositorios**: Interacción con la base de datos.
+- **DTOs**: Objetos diseñados para transferir datos de forma segura y eficiente.
 
+---
 
-![image](https://github.com/jacqueline-oliveira/3356-java-web-front/assets/66698429/00670340-c0fd-4035-b01a-af25aeff28a0)
+### Extras
 
+- **Inyección de Dependencias**: El uso de la inyección de dependencias permite separar responsabilidades y hacer el código más limpio.
+- **Uso de Streams**: Para realizar transformaciones de listas y objetos de forma eficiente.
+- **Validación de Datos**: Se utilizan `Optional` y comprobaciones para evitar problemas con datos no encontrados.
+- **Trabajo Incremental**: El desarrollo de la aplicación se ha realizado de manera incremental, añadiendo nuevas funcionalidades conforme se necesitaban.
 
+---
 
-# Buenos estudios!
+## Pruebas
+
+Las pruebas de la API se pueden realizar utilizando herramientas como **Postman** o directamente desde el frontend.
+
+Ejemplo de pruebas:
+
+- **Obtener el listado de todas las series**: `GET http://localhost:8080/series`
+- **Obtener el detalle de una serie**: `GET http://localhost:8080/series/{id}`
+- **Filtrar series por categoría**: `GET http://localhost:8080/series/categoria/{categoria}`
+
+---
+
+¡Gracias por tu interés en este proyecto!

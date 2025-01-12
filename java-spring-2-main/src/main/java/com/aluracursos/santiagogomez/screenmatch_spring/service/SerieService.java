@@ -2,6 +2,7 @@ package com.aluracursos.santiagogomez.screenmatch_spring.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Locale.Category;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.aluracursos.santiagogomez.screenmatch_spring.dto.EpisodioDTO;
 import com.aluracursos.santiagogomez.screenmatch_spring.dto.SerieDTO;
+import com.aluracursos.santiagogomez.screenmatch_spring.model.Categoria;
 import com.aluracursos.santiagogomez.screenmatch_spring.model.Serie;
 import com.aluracursos.santiagogomez.screenmatch_spring.respository.SerieRepository;
 
@@ -59,6 +61,11 @@ public class SerieService {
             .map(e -> new EpisodioDTO(e.getTemporada(), e.getTitulo(), e.getNumeroEpisodio()))
             .collect(Collectors.toList());
 
+    }
+
+    public List<SerieDTO> obtenerSeriesPorCategoria(String nombreGenero){
+        Categoria categoria = Categoria.fromEspanol(nombreGenero);
+        return convierDatos(repository.findByGenero(categoria));
     }
 
 }

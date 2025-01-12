@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aluracursos.santiagogomez.screenmatch_spring.dto.SerieDTO;
+import com.aluracursos.santiagogomez.screenmatch_spring.dto.EpisodioDTO;
 import com.aluracursos.santiagogomez.screenmatch_spring.service.SerieService;
 
 @RestController //Este controlador manejará solicitudes HTTP y devolverá respuestas en formato JSON
@@ -35,5 +36,10 @@ public class SerieController {
     @GetMapping("/{id}")
     public SerieDTO obtenerPorId(@PathVariable Long id){
         return service.obtenerPorId(id);
+    }
+
+    @GetMapping("/{id}/temporadas/todas")
+    public List<EpisodioDTO> obtenerTodasLasTemporaras(@PathVariable Long id){
+        return service.obtenerTodasLasTemporadas(id);
     }
 }

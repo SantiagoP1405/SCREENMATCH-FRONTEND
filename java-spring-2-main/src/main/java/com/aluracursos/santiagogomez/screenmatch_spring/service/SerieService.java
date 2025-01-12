@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.aluracursos.santiagogomez.screenmatch_spring.dto.EpisodioDTO;
 import com.aluracursos.santiagogomez.screenmatch_spring.dto.SerieDTO;
 import com.aluracursos.santiagogomez.screenmatch_spring.model.Serie;
 import com.aluracursos.santiagogomez.screenmatch_spring.respository.SerieRepository;
@@ -38,6 +39,17 @@ public class SerieService {
         if (serie.isPresent()){
             Serie s = serie.get();
             return new SerieDTO(s.getId(), s.getTitulo(), s.getTotalTemporadas(),  s.getEvaluacion(), s.getGenero(), s.getSinopsis(), s.getPoster(), s.getCasting());
+        }
+        return null;
+    }
+
+    public List<EpisodioDTO> obtenerTodasLasTemporadas(Long id) {
+        Optional<Serie> serie = repository.findById(id);
+        if (serie.isPresent()) {
+            Serie s = serie.get();
+            return s.getEpisodios().stream()
+                .map(e -> new EpisodioDTO(e.getTemporada(), e.getTitulo(), e.getNumeroEpisodio()))
+                .collect(Collectors.toList());
         }
         return null;
     }

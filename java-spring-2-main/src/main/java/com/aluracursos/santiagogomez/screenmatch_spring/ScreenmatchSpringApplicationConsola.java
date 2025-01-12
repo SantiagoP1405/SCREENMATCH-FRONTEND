@@ -1,4 +1,4 @@
-package com.aluracursos.santiagogomez.screenmatch_spring;
+/*package com.aluracursos.santiagogomez.screenmatch_spring;
 
 import com.aluracursos.santiagogomez.screenmatch_spring.model.DatosEpisodio;
 import com.aluracursos.santiagogomez.screenmatch_spring.model.DatosSerie;
@@ -30,7 +30,8 @@ public class ScreenmatchSpringApplicationConsola implements CommandLineRunner {
 		principal.muestraMenu();
 
 		/*EjemploStreams ejemploStreams = new EjemploStreams();
-		ejemploStreams.muestraEjemplo();*/
+		ejemploStreams.muestraEjemplo();
 	}
 }
+*/
 
